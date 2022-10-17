@@ -1,0 +1,37 @@
+.container {
+    .header {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid;
+        margin-bottom: 1rem;
+        .username {
+            font-weight: bold;
+            padding: 0 1rem 0 1rem;
+        }
+        .role {
+            padding: 0 1rem 0 1rem;
+        }
+    }
+    .content {
+        padding: 0 1rem 0 1rem;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        .log {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .5rem;
+        }
+    }
+    .footer {
+        padding: 0 1rem 0 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+::ng-deep.mat-menu-panel {
+    max-width: none !important;
+    width: 370px !important;
+  }

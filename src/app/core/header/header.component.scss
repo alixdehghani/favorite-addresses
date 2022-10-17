@@ -1,0 +1,59 @@
+@import "@angular/material/theming";
+@import "../../scss/respond.scss";
+
+.navbar {
+    background-color: #0e4195;
+    color: mat-color($mat-grey, A100);
+    padding: 0.5rem 1rem;
+    .navbar-window__title {
+        margin-right: auto;
+    }
+    .active-link {
+        background-color: #0a367c;
+    }
+
+    &-window {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+
+        &__divader {
+            margin-left: auto;
+        }
+
+        &[dir="rtl"] &__divader {
+            margin-right: auto;
+        }
+
+        &__title {
+            &-logo-section {
+                display: flex;
+                align-items: center;
+                // background: #fff;
+            }
+            &-img {
+                height: 30px;
+                margin: 0 4px 3px 0;
+            }
+            &-text {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #fff;
+                margin-left: auto;
+                padding: 0.5rem;
+            }
+        }
+        &__version
+        {
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+    }
+    &__item {
+        &__text {
+            @include respond(1400px) {
+                display: none;
+            }
+        }
+    }
+}

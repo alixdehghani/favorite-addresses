@@ -1,0 +1,18 @@
+.container {
+    height: 100vh;
+    padding: 0;
+    background-color: #d4d6df;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .content {
+        margin-bottom: 13px;
+    }
+    mat-card-footer {
+        margin: 0;
+    }
+    .footer {
+        text-align: center;
+    }
+}

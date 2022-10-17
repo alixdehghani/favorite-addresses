@@ -1,0 +1,19 @@
+<button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon> <span>Guest</span>
+</button>
+<mat-menu #menu="matMenu">
+    <div class="container">
+        <div class="header">
+            <span class="username">Guest</span>
+        </div>
+
+        <div class="footer">
+            <button mat-raised-button color="primary" (click)="onUserManagementClick()">
+                <mat-icon>settings</mat-icon> User Account Management
+            </button>
+            <button mat-raised-button (click)="onLogout()">
+               Logout
+            </button>
+        </div>
+    </div>
+</mat-menu>
