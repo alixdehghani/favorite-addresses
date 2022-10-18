@@ -11,10 +11,29 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { UserManagementStatusComponent } from "./header/user-management-status/user-management-status.component";
+import { ContentComponent } from "./content/content.component";
 
 @NgModule({
-    declarations: [HeaderComponent, UserManagementStatusComponent],
-    imports: [CommonModule, RouterModule, HttpClientModule, MatCardModule, MatButtonModule, MatTooltipModule, MatIconModule, MatProgressSpinnerModule, MatSlideToggleModule, MatMenuModule],
-    exports: [HeaderComponent]
+    declarations: [
+        HeaderComponent,
+        UserManagementStatusComponent,
+        ContentComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        HttpClientModule,
+        MatCardModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatSlideToggleModule,
+        MatMenuModule
+    ],
+    exports: [
+        HeaderComponent,
+        ContentComponent
+    ]
 })
 export class CoreModule {}
