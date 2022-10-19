@@ -1,4 +1,6 @@
 import { EventEmitter, Injectable } from "@angular/core";
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserService } from "../core/user.service";
 
 @Injectable({
     providedIn: 'root'
@@ -6,10 +8,15 @@ import { EventEmitter, Injectable } from "@angular/core";
 export class AuthService {
     onAuthenticated = new EventEmitter<void>();
     onLogout = new EventEmitter<void>();
+    private _jwtHelperService: JwtHelperService;
 
-    private _isAuthenticated = false;
     get isAuthenticated(): boolean {
-        return this._isAuthenticated;
+        const t = localStorage.getItem("token");
+        if (t)
+            return true;
+        else {
+            return false;
+        }
     }
 
     get token(): string {
@@ -25,15 +32,22 @@ export class AuthService {
         localStorage.setItem("token", value);
     }
 
+    constructor(private _userService: UserService) {
+        this._jwtHelperService = new JwtHelperService();
+    }
+
     login(token: string): void {
         this.token = token;
+        this._userService.setUserInfo(this._jwtHelperService.decodeToken(token).email, this._jwtHelperService.decodeToken(token).sub);        
         this.onAuthenticated.emit();
-        this._isAuthenticated = true;
     }
 
     logout(): void {
         localStorage.clear();
         this.onLogout.emit();
-        this._isAuthenticated = true;
+    }
+
+    isTokenExpired(): boolean {
+        return this._jwtHelperService.isTokenExpired(this.token);
     }
 }
