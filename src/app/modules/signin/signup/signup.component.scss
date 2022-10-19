@@ -1,0 +1,76 @@
+@import "../../../scss/spinner.scss";
+@import "../../../scss/respond.scss";
+
+.container {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(249,247,247);
+    background: radial-gradient(circle, rgba(249,247,247,1) 0%, rgba(212,214,223,1) 100%);
+    .login-section {
+        height: rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .logo-section {
+        align-self: flex-end;
+        @include respond(phone) {
+            margin-right: 10%;
+        }
+        .logo {
+            height: 2.5rem;
+        }
+    }
+    .card-container {
+        width: 40rem;
+        // height: 25rem;
+
+        @include respond(phone) {
+            width: 70%;
+            margin: auto;
+            height: auto;
+        }
+
+        .form-container {
+            .form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 0.5rem;
+                // border-bottom: 1px solid #ccc;
+                position: relative;
+
+                mat-form-field {
+                    display: block;
+                    margin-top: 1rem;
+                }
+                .submit {
+                    // height: 3rem;
+                    margin-top: 1rem;
+                    align-self: flex-end;
+                }
+                .error {
+                    position: absolute;
+                    bottom: 0;
+                    .error-text {
+                        color: red;
+                    }
+                }
+            }
+            .info-section {
+                padding: 0.5rem;
+                .info-text {
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    .sing-up {
+        margin-left: 1.5rem;
+    }
+}

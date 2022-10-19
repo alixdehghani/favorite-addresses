@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="login-section">
+        <div class="logo-section">
+            <img src="../../../assets/images/logo.png" alt="Favorid Address" class="logo">
+        </div>
+        <mat-card class="card-container">
+            <mat-card-content class="content">
+                <mat-card-title><span>Favorid Addresses</span></mat-card-title>
+                <div class="form-container">
+                    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Name</mat-label>
+                            <input matInput type="text" formControlName="name">
+                            <mat-icon matPrefix aria-hidden="false" aria-label="person">person</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="email" formControlName="email">
+                            <mat-icon matPrefix aria-hidden="false" aria-label="person">email</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput type="text" formControlName="phoneNumber">
+                            <mat-icon matPrefix aria-hidden="false" aria-label="person">phone</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password">
+                            <mat-icon matPrefix aria-hidden="false" aria-label="vpn_key">vpn_key</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Confirm New Password</mat-label>
+                            <input matInput type="password" formControlName="confirmPassword">
+                            <mat-icon matPrefix aria-hidden="false" aria-label="vpn_key">vpn_key</mat-icon>
+                            <mat-error *ngIf="formGroup.hasError('notSame')">
+                                <p class="caption status-danger">
+                                    The password confirmation does not match.
+                                </p>
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" type="submit" [class.spinner]="loading"
+                            [disabled]="!formGroup.dirty || loading || !formGroup.valid" class="submit">
+                            Sign Up
+                        </button>
+                        <div class="error" *ngIf="error">
+                            <span class="error-text">*{{error}} </span>
+                        </div>
+                    </form>
+                    <!-- <div class="info-section">
+                        <div class="info-text">
+                            Favorid Address is a  web application to manages the favorite addresses for
+                            a user. Each user has a set of favorite addresses in which he/she can manage them.
+                        </div>
+                    </div> -->
+                </div>
+                
+            </mat-card-content>
+            <mat-card-footer>
+                <div class="sing-up">
+                    Have an Account? <a [routerLink]="'/signin/login'">Login yours now.</a>
+                </div>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>
