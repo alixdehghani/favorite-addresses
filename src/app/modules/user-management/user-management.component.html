@@ -1,0 +1,16 @@
+<mat-card class="container">
+    <mat-card-title class="title">
+        Usre Managment
+    </mat-card-title>
+    <mat-card-content>
+        <nav mat-tab-nav-bar [tabPanel]="tabPanel" class="tab-nav-bar">
+            <a mat-tab-link (click)="activeLink = 'edit-user-info'" [active]="activeLink === 'edit-user-info'"
+                [routerLink]="'/user-management/edit-user-info'">Edit Personal Info</a>
+            <a mat-tab-link (click)="activeLink = 'change-password'" [active]="activeLink === 'change-password'"
+                [routerLink]="'/user-management/change-password'">Change Password</a>
+        </nav>
+        <mat-tab-nav-panel #tabPanel>
+            <router-outlet></router-outlet>
+        </mat-tab-nav-panel>
+    </mat-card-content>
+</mat-card>

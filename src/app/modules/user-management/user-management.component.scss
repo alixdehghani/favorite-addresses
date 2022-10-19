@@ -1,0 +1,19 @@
+.container {
+    height: calc(100vh - 10rem);
+    padding: 0;
+  }
+  
+  .title {
+    display: flex;
+    align-items: center;
+    background-color: #ccc;
+    padding: 0 .5rem;
+    height: 3rem;
+  }
+  
+  .tab-nav-bar {
+  }
+  
+  .mat-tab-label-active {
+    color: #0a367c;
+  }
