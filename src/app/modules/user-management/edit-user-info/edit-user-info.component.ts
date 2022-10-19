@@ -48,6 +48,7 @@ export class EditUserInfoComponent {
             next: (data) => {
                 this.formGroup.patchValue(data);
                 this._snackBar.open('Change Submited',  'Close', { duration: 4000 });
+                this._userService.setUserInfo(data.email, `${data.id}`)
                 this.loading = false;
             },
             error: (err) => {
