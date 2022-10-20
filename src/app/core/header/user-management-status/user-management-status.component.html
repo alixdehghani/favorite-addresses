@@ -1,30 +1,26 @@
-<button mat-button [matMenuTriggerFor]="menu">
-    <mat-icon>person</mat-icon> <span>{{username}}</span>
+<button mat-raised-button color="accent" [matMenuTriggerFor]="menu" class="button">
+    <mat-icon>person</mat-icon> <span>Welcome {{username}}</span>
 </button>
 <mat-menu #menu="matMenu">
     <div class="container">
-        <div class="header">
-            <span class="username">{{username}}</span>
-        </div>
         <ng-contaoiner [ngTemplateOutlet]="footerTemplate"></ng-contaoiner>
     </div>
 </mat-menu>
 
 <ng-template #Guest>
-    <div class="footer">
-        <button mat-raised-button (click)="onsigin()">
-           Signin
-        </button>
-    </div>
+    <button mat-raised-button color="primary" [routerLink]="'signin/login'">
+        <mat-icon>login</mat-icon> Log in
+    </button>
+    <button mat-raised-button color="primary" [routerLink]="'signin/signup'">
+        <mat-icon>person_add</mat-icon> Sign in
+    </button>
 </ng-template>
 
 <ng-template #AuthenticatedUser>
-    <div class="footer">
-        <button mat-raised-button color="primary" (click)="onUserManagementClick()">
-            <mat-icon>settings</mat-icon> User Account Management
-        </button>
-        <button mat-raised-button (click)="onLogout()">
-           Logout
-        </button>
-    </div>
+    <button mat-raised-button color="primary" (click)="onUserManagementClick()">
+        <mat-icon>settings</mat-icon> User Account Management
+    </button>
+    <button mat-raised-button color="warn" (click)="onLogout()">
+        <mat-icon>logout</mat-icon> Log out
+    </button>
 </ng-template>
