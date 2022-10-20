@@ -1,15 +1,9 @@
-<nav class="navbar navbar-window">
-    <div class="navbar-window__title">
-        <span [routerLink]="'/'" class="navbar-window__title-text">Favorite Adresses</span>
+<nav class="navbar">
+    <div class="navbar__title">
+        <span [routerLink]="'/'" class="navbar__title-text">Favorite Adresses</span>
     </div>
-    <app-header-user-management-status class="navbar-window__logout"></app-header-user-management-status>
-    <span class="navbar-window__title-logo-section">
-        <img class="navbar-window__title-img" src="../../../assets/images/logo.png" alt="address logo">
-        <!-- <span class="navbar-window__title-text"></span> -->
+    <app-header-user-management-status class="navbar__logout"></app-header-user-management-status>
+    <span class="navbar__title-logo-section" [routerLink]="'/'">
+        <img class="navbar__title-img" src="../../../assets/images/logo.png" alt="address logo">
     </span>
 </nav>
-<!-- <nav class="navbar navbar-mobile">
-    <a mat-button routerLink="/" class="navbar-mobile__enb">enbs</a>
-    <a mat-button routerLink="/" class="navbar-mobile__alamrs">Alamrs</a>
-    <a mat-button routerLink="/" class="navbar-mobile__about">Aboute</a>
-</nav> -->

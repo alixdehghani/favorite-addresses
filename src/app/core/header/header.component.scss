@@ -5,7 +5,7 @@
     background-color: #0e4195;
     color: mat-color($mat-grey, A100);
     padding: 0.5rem 1rem;
-    .navbar-window__title {
+    .navbar__title {
         margin-right: auto;
         cursor: pointer;
     }
@@ -13,48 +13,39 @@
         background-color: #0a367c;
     }
 
-    &-window {
-        display: flex;
-        align-items: center;
-        padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
 
-        &__divader {
-            margin-left: auto;
-        }
+    &__divader {
+        margin-left: auto;
+    }
 
-        &[dir="rtl"] &__divader {
-            margin-right: auto;
-        }
+    &[dir="rtl"] &__divader {
+        margin-right: auto;
+    }
 
-        &__title {
-            &-logo-section {
-                display: flex;
-                align-items: center;
-                // background: #fff;
-            }
-            &-img {
-                height: 30px;
-                margin: 0 4px 3px 0;
-            }
-            &-text {
-                font-size: 1.2rem;
-                font-weight: bold;
-                color: #fff;
-                margin-left: auto;
-                padding: 0.5rem;
-            }
+    &__title {
+        &-logo-section {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            // background: #fff;
         }
-        &__version
-        {
-            padding: 0.5rem;
+        &-img {
+            height: 30px;
+            margin: 0 4px 3px 0;
+        }
+        &-text {
+            font-size: 1.2rem;
             font-weight: bold;
+            color: #fff;
+            margin-left: auto;
+            padding: 0.5rem;
         }
     }
-    &__item {
-        &__text {
-            @include respond(1400px) {
-                display: none;
-            }
-        }
+    &__version {
+        padding: 0.5rem;
+        font-weight: bold;
     }
 }

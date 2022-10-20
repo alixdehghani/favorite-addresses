@@ -18,10 +18,13 @@
     }
     .logo-section {
         align-self: flex-end;
-        @include respond(phone) {
+        @include respond(mat-tab) {
             margin-right: 10%;
         }
         .logo {
+            @include respond(phone) {
+                display: none;
+            }
             height: 2.5rem;
         }
     }
@@ -30,7 +33,7 @@
         // height: 25rem;
 
         @include respond(phone) {
-            width: 70%;
+            width: 85%;
             margin: auto;
             height: auto;
         }
