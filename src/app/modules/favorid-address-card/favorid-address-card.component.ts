@@ -10,4 +10,5 @@ export class FavoridAddressCardComponent {
     @Input() address!: string;
     @Input() lat!: number;
     @Input() long!: number;
+    @Input() name!: string;
 }

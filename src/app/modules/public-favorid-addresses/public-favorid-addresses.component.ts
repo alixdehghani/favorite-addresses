@@ -17,6 +17,8 @@ export class PublicFavoridAddressesComponent implements OnInit {
         this.loading = true;
         this._apiService.readPublicAddresses().subscribe({
             next: (data) => {
+                console.log(data);
+                
                 this.publicAdresses = [...data];
                 this.loading = false;
             },
