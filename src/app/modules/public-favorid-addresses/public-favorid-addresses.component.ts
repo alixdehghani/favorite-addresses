@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "./api.service";
+import { readPublicAddressInterface } from "./public-address.interface";
 
 @Component({
     selector: 'app-public-favorid-addresses',
@@ -10,14 +11,17 @@ import { ApiService } from "./api.service";
 })
 export class PublicFavoridAddressesComponent implements OnInit {
     constructor(private _apiService: ApiService) { }
-
+    publicAdresses: readPublicAddressInterface[] = [];
+    loading = false;
     ngOnInit(): void {
+        this.loading = true;
         this._apiService.readPublicAddresses().subscribe({
             next: (data) => {
-                console.log(data);
+                this.publicAdresses = [...data];
+                this.loading = false;
             },
             error: (err) => {
-                console.log(err);
+                this.loading = false;
             }
         });
     }

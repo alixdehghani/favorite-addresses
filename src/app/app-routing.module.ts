@@ -4,7 +4,7 @@ import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '', pathMatch: 'full'},
+  {path: '', redirectTo: 'public-favorid-addresses', pathMatch: 'full'},
   {path: 'signin', loadChildren: () => import('./modules/signin/signin.module').then(m => m.SigninModule)},
   {path: 'public-favorid-addresses', loadChildren: () => import('./modules/public-favorid-addresses/public-favorid-addresses.module').then(m => m.PublicFavoridAddressesModule)},
   {path: 'private-favorid-addresses', canActivate: [AuthGuard], loadChildren: () => import('./modules/private-favorid-addresses/private-favorid-addresses.module').then(m => m.PrivateFavoridAddressesModule)},

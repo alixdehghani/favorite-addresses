@@ -1,5 +1,7 @@
 <div class="container">
-    <button (click)="onAddButton()">Add Button</button>
-    <button (click)="onUpdateButton()">Update Button</button>
-    <button (click)="onDeleteButton()">Delete Button</button>
+    <button class="add-btn" color="primary" mat-raised-button><mat-icon>add</mat-icon>Add new public address</button>
+    <ng-container *ngFor="let item of publicAdresses ">
+        <app-favorid-address-card class="item" [id]="item.id" [address]="item.address" [lat]="item.latitude"
+            [long]="item.longitude"></app-favorid-address-card>
+    </ng-container>
 </div>

@@ -12,6 +12,7 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { UserManagementStatusComponent } from "./header/user-management-status/user-management-status.component";
 import { ContentComponent } from "./content/content.component";
+import { MatTabsModule } from "@angular/material/tabs";
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { ContentComponent } from "./content/content.component";
         MatIconModule,
         MatProgressSpinnerModule,
         MatSlideToggleModule,
-        MatMenuModule
+        MatMenuModule,
+        MatTabsModule
     ],
     exports: [
         HeaderComponent,

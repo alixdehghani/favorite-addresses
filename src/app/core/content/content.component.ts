@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
+import { last } from "lodash-es";
+import { Subscription } from "rxjs";
 import { AuthService } from "src/app/auth/auth.service";
 
 @Component({
@@ -9,17 +11,31 @@ import { AuthService } from "src/app/auth/auth.service";
 })
 export class ContentComponent implements OnInit {
     loadingRouteConfig!: boolean;
-    constructor(
-        private _authService: AuthService,
-        private readonly _router: Router
-    ) { }
+    activeLink = 'public-favorid-addresses';
+    private _subscription!: Subscription;
 
-    ngOnInit(): void {
-       
+    constructor(
+        public authService: AuthService,
+        public router: Router
+    ) {
+        if (router.url) {            
+            this.activeLink = last(router.url?.split('/'))!;
+        }
     }
 
-    onPublicFavoriteAddressesClicked(): void {
-        this._router.navigate(['public-favorid-addresses']);
+    ngOnInit(): void {
+        this.activeLink = last(this.router.url?.split('/'))!;
+        this._subscription = this.router.events.subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                this.activeLink = last(this.router.url?.split('/'))!;                
+            }
+        });
+    }
+
+    ngOnDestroy(): void {
+        if (this._subscription) {
+            this._subscription.unsubscribe();
+        }
     }
 
 }

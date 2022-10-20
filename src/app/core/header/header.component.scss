@@ -5,33 +5,18 @@
     background-color: #0e4195;
     color: mat-color($mat-grey, A100);
     padding: 0.5rem 1rem;
-    .navbar__title {
-        margin-right: auto;
-        cursor: pointer;
-    }
-    .active-link {
-        background-color: #0a367c;
-    }
-
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-
-    &__divader {
-        margin-left: auto;
-    }
-
-    &[dir="rtl"] &__divader {
+    
+    .navbar__title {
         margin-right: auto;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
     }
 
     &__title {
-        &-logo-section {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            // background: #fff;
-        }
         &-img {
             height: 30px;
             margin: 0 4px 3px 0;
@@ -43,9 +28,5 @@
             margin-left: auto;
             padding: 0.5rem;
         }
-    }
-    &__version {
-        padding: 0.5rem;
-        font-weight: bold;
     }
 }

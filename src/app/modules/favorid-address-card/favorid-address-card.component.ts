@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'app-favorid-address-card',
@@ -6,5 +6,8 @@ import { Component } from "@angular/core";
     styleUrls: ['favorid-address-card.component.scss']
 })
 export class FavoridAddressCardComponent {
-    
+    @Input() id!: number;
+    @Input() address!: string;
+    @Input() lat!: number;
+    @Input() long!: number;
 }

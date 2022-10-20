@@ -1,9 +1,9 @@
 <nav class="navbar">
-    <div class="navbar__title">
-        <span [routerLink]="'/'" class="navbar__title-text">Favorite Adresses</span>
+    <!-- <span class="navbar__title-logo-section" [routerLink]="'/'">
+    </span> -->
+    <div class="navbar__title" [routerLink]="'/'">
+        <img class="navbar__title-img" src="../../../assets/images/logo.png" alt="address logo">
+        <span class="navbar__title-text">Favorite Adresses</span>
     </div>
     <app-header-user-management-status class="navbar__logout"></app-header-user-management-status>
-    <span class="navbar__title-logo-section" [routerLink]="'/'">
-        <img class="navbar__title-img" src="../../../assets/images/logo.png" alt="address logo">
-    </span>
 </nav>
