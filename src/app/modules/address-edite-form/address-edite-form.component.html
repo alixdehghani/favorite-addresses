@@ -24,6 +24,7 @@
                 <input matInput type="text" formControlName="longitude">
                 <mat-icon matPrefix aria-hidden="false" aria-label="vpn_key">my_location</mat-icon>
             </mat-form-field>
+            <app-search-geocoding class="search" [addressControl]="addressControl" [latControl]="latControl" [lonControl]="longsControl"></app-search-geocoding>
         </form>
     </mat-card-content>
     <mat-card-footer class="footer">

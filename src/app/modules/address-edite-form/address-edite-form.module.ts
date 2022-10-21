@@ -7,6 +7,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
+import { SearchGeocodingModule } from "src/app/shared/search-geocoding/search-geocoding.module";
 import { AddressEditeFormRoutingModule } from "./address-edite-form-routing.module";
 import { AddressEditeFormComponent } from "./address-edite-form.component";
 
@@ -21,7 +22,8 @@ import { AddressEditeFormComponent } from "./address-edite-form.component";
         MatButtonModule,
         MatInputModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        SearchGeocodingModule
     ]
 })
 export class AddressEditeFormModule {}

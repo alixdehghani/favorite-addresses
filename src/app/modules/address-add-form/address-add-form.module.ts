@@ -7,6 +7,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
+import { SearchGeocodingModule } from "src/app/shared/search-geocoding/search-geocoding.module";
 import { AddressAddFormComponent } from "./address-add-form.component";
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AddressAddFormComponent } from "./address-add-form.component";
         MatCardModule,
         MatIconModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        SearchGeocodingModule
     ],
 })
 export class AddressAddFormModule {}

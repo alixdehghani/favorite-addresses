@@ -26,4 +26,15 @@ export class AddressAddFormComponent {
     onClose(): void {
         this.dialogRef.close();
     }
+    get addressControl(): FormControl {
+        return this.formGroup.get('address') as FormControl;
+    }
+
+    get latControl(): FormControl {
+        return this.formGroup.get('latitude') as FormControl;
+    }
+
+    get longsControl(): FormControl {
+        return this.formGroup.get('longitude') as FormControl;
+    }
 }

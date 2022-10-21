@@ -13,9 +13,11 @@ import { ApiService } from "./api.service";
 export class AddressEditeFormComponent implements OnInit {
     loading = false;
     readonly formGroup: FormGroup;
+    formControl = new FormControl();
     constructor(route: ActivatedRoute, private _apiService: ApiService, private _router: Router) {
         const routeParams = route.snapshot.paramMap;
         const id = Number(routeParams.get('id'));
+
 
         this.formGroup = new FormGroup({
             name: new FormControl<string | null>(null),
@@ -25,18 +27,18 @@ export class AddressEditeFormComponent implements OnInit {
         });
         this._apiService.init(id);
     }
-    
+
     ngOnInit(): void {
         this.loading = true;
         this._apiService.getPublicAddressDetail().subscribe({
             next: (data) => {
                 this.loading = false;
-                this.formGroup.patchValue(data)
+                this.formGroup.patchValue(data);
             },
-            error: (err) => {  
-                this.loading = false;              
+            error: (err) => {
+                this.loading = false;
             }
-        })
+        });
     }
 
     onSubmit(): void {
@@ -45,14 +47,14 @@ export class AddressEditeFormComponent implements OnInit {
             next: (data) => {
                 console.log(data);
                 this.formGroup.reset();
-                this.formGroup.patchValue(data)
+                this.formGroup.patchValue(data);
                 this.loading = false;
             },
             error: (err) => {
                 console.log(err);
                 this.loading = false;
             }
-        })
+        });
     }
 
     onDelete(): void {
@@ -66,7 +68,18 @@ export class AddressEditeFormComponent implements OnInit {
             error: (err) => {
                 this.loading = false;
             }
-        })
+        });
     }
 
+    get addressControl(): FormControl {
+        return this.formGroup.get('address') as FormControl;
+    }
+
+    get latControl(): FormControl {
+        return this.formGroup.get('latitude') as FormControl;
+    }
+
+    get longsControl(): FormControl {
+        return this.formGroup.get('longitude') as FormControl;
+    }
 }
