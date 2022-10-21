@@ -1,0 +1,7 @@
+<div class="container">
+    <button class="add-btn" color="primary" mat-raised-button (click)="onAddBtnClicked()"><mat-icon>add</mat-icon>Add new public address</button>
+    <ng-container *ngFor="let item of favoriteAdresses ">
+        <app-favorid-address-card class="item" [id]="item.id" [address]="item.address" [lat]="item.latitude"
+            [long]="item.longitude" [name]="item.name" (onEditClick)="onEditClick($event)"></app-favorid-address-card>
+    </ng-container>
+</div>

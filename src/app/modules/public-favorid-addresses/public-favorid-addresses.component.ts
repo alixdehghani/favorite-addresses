@@ -1,9 +1,8 @@
-import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { take } from "rxjs";
-import { AddressAddFormComponent } from "../address-add-form/address-add-form.component";
+import { AddressAddFormComponent } from "src/app/shared/address-add-form/address-add-form.component";
 import { ApiService } from "./api.service";
 import { createPublicAddressInterface, readPublicAddressInterface } from "./public-address.interface";
 
@@ -35,6 +34,10 @@ export class PublicFavoridAddressesComponent implements OnInit {
     onAddBtnClicked() {
         const dialogRef = this._dialog.open(AddressAddFormComponent, {
             width: '70%',
+            closeOnNavigation: true,
+            hasBackdrop: true,
+            disableClose: true,
+
         });
         dialogRef.afterClosed().pipe(take(1)).subscribe((value: createPublicAddressInterface) => {
             if (value) {
@@ -57,6 +60,4 @@ export class PublicFavoridAddressesComponent implements OnInit {
             }
         });
     }
-
-   
 }

@@ -14,6 +14,7 @@ export class AddressEditeFormComponent implements OnInit {
     loading = false;
     readonly formGroup: FormGroup;
     formControl = new FormControl();
+    reverseResult = ''
     constructor(route: ActivatedRoute, private _apiService: ApiService, private _router: Router) {
         const routeParams = route.snapshot.paramMap;
         const id = Number(routeParams.get('id'));
@@ -81,5 +82,13 @@ export class AddressEditeFormComponent implements OnInit {
 
     get longsControl(): FormControl {
         return this.formGroup.get('longitude') as FormControl;
+    }
+
+    get latValue(): number {
+        return +this.latControl.value;
+    }
+
+    get lonValue(): number {
+        return +this.longsControl.value;
     }
 }

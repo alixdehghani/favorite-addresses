@@ -36,7 +36,7 @@ export class SearchGeocodingComponent implements OnInit, OnDestroy {
     }
 
     onAddressClicked(option: SearchGeocodingInterface) {
-        this.addressControl.setValue(option.display_name)
+        this.addressControl.setValue(option.display_name);
         this.latControl.setValue(option.lat);
         this.lonControl.setValue(option.lon);
     }

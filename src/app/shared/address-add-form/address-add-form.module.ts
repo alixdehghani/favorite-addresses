@@ -7,6 +7,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
+import { ReverseGeocodingModule } from "src/app/shared/reverse-geocoding/reverse-geocoding.module";
 import { SearchGeocodingModule } from "src/app/shared/search-geocoding/search-geocoding.module";
 import { AddressAddFormComponent } from "./address-add-form.component";
 
@@ -21,7 +22,8 @@ import { AddressAddFormComponent } from "./address-add-form.component";
         MatIconModule,
         MatFormFieldModule,
         MatInputModule,
-        SearchGeocodingModule
+        SearchGeocodingModule,
+        ReverseGeocodingModule
     ],
 })
 export class AddressAddFormModule {}

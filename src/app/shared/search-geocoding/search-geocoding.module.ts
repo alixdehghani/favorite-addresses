@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { HttpClientModule } from "@angular/common/http";
 import { ApiService } from "./api.service";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
     declarations: [SearchGeocodingComponent],
@@ -16,7 +17,8 @@ import { ApiService } from "./api.service";
         HttpClientModule,
         MatInputModule,
         MatAutocompleteModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatIconModule
     ],
     providers: [ApiService],
     exports: [SearchGeocodingComponent]

@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { PublicFavoridAddressesComponent } from "./public-favorid-addresses.component";
+import { PrivateFavoridAddressesComponent } from "./private-favorid-addresses.component";
 
 const routes: Routes = [
     {
         path: '',
-        component: PublicFavoridAddressesComponent,
+        component: PrivateFavoridAddressesComponent,
         children: [
             {
                 path: '',
@@ -23,4 +23,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class PublicFavoridAddressesRoutingModule { }
+export class PrivateFavoridAddressesRoutingModule { }

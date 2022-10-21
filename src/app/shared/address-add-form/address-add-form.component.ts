@@ -10,6 +10,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddressAddFormComponent {
     readonly formGroup: FormGroup;
+    reverseResult = '';
     constructor(public dialogRef: MatDialogRef<AddressAddFormComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
         this.formGroup = new FormGroup({
             name: new FormControl<string | null>(null),
@@ -36,5 +37,13 @@ export class AddressAddFormComponent {
 
     get longsControl(): FormControl {
         return this.formGroup.get('longitude') as FormControl;
+    }
+
+    get latValue(): number {
+        return +this.latControl.value;
+    }
+
+    get lonValue(): number {
+        return +this.longsControl.value;
     }
 }

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:3000',
-  searchGeocodingUrl: 'https://nominatim.openstreetmap.org/search/'
+  searchGeocodingUrl: 'https://nominatim.openstreetmap.org/search/',
+  reverseGeocodingUrl: 'https://nominatim.openstreetmap.org/reverse/'
 };
 
 /*
