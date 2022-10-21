@@ -1,21 +1,36 @@
+@import "../../scss/respond.scss";
+
 .container {
-    height: calc(100vh - 20vh);
-    width: 100%;
-    padding: .5rem;
+    height: calc(100vh - 23vh);
+    // width: 100%;
+    padding: 0.5rem;
     display: flex;
-    
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
     .add-btn {
         position: absolute;
         right: 2rem;
         top: 5px;
         z-index: 10;
+        @include respond(phone) {
+            top: unset;
+            bottom: 5px;
+        }
     }
-    .item:not(:last-child) {
-        margin-right: .5rem;
-    }
+
     .item {
         flex: 0 0 auto;
-        width: 33.3333%;
+        width: 32%;
+        margin-top: 0.5rem;
+        margin-right: 0.5rem;
+        @include respond(tab-port) {
+            width: 49%;
+        }
+        @include respond(phone) {
+            width: 99%;
+        }
     }
     overflow-y: auto;
 }

@@ -7,6 +7,7 @@ export interface readPublicAddressInterface {
 }
 
 export interface createPublicAddressInterface {
+    name: string;
     address: string;
     latitude: number;
     longitude: number;

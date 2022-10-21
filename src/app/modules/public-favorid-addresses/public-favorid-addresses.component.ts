@@ -1,7 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
+import { take } from "rxjs";
+import { AddressAddFormComponent } from "../address-add-form/address-add-form.component";
 import { ApiService } from "./api.service";
-import { readPublicAddressInterface } from "./public-address.interface";
+import { createPublicAddressInterface, readPublicAddressInterface } from "./public-address.interface";
 
 @Component({
     selector: 'app-public-favorid-addresses',
@@ -10,7 +14,7 @@ import { readPublicAddressInterface } from "./public-address.interface";
     providers: [ApiService]
 })
 export class PublicFavoridAddressesComponent implements OnInit {
-    constructor(private _apiService: ApiService) { }
+    constructor(private _apiService: ApiService, private _dialog: MatDialog, private _router: Router) { }
     publicAdresses: readPublicAddressInterface[] = [];
     loading = false;
     ngOnInit(): void {
@@ -28,14 +32,25 @@ export class PublicFavoridAddressesComponent implements OnInit {
         });
     }
 
-    onAddButton(): void {
-        this._apiService.cratePublicAddresses({
-            address: 'Mandaba',
-            latitude: 35.212,
-            longitude: 42.222
-        }).subscribe({
+    onAddBtnClicked() {
+        const dialogRef = this._dialog.open(AddressAddFormComponent, {
+            width: '70%',
+        });
+        dialogRef.afterClosed().pipe(take(1)).subscribe((value: createPublicAddressInterface) => {
+            if (value) {
+                this._addAddress(value)
+            }
+        })
+    }
+
+    onEditClick(id: number) {
+        this._router.navigate([`/public-favorid-addresses/edite/${id}`])
+    }
+
+    private _addAddress(data:createPublicAddressInterface): void {
+        this._apiService.cratePublicAddresses(data).subscribe({
             next: (data) => {
-                console.log(data);
+                this.publicAdresses.push(data)
             },
             error: (err) => {
                 console.log(err);
@@ -43,29 +58,5 @@ export class PublicFavoridAddressesComponent implements OnInit {
         });
     }
 
-    onUpdateButton(): void {
-        this._apiService.updatePublicAddress(1, {
-            address: 'ali',
-            latitude: 352.25,
-            longitude: 42.00
-        }).subscribe({
-            next: (data) => {
-                console.log(data);
-            },
-            error: (err) => {
-                console.log(err);
-            }
-        })
-    }
-
-    onDeleteButton(): void {
-        this._apiService.deletePublicAddress(3).subscribe({
-            next: (data) => {
-                console.log(data);
-            },
-            error: (err) => {
-                console.log(err);
-            }
-        })
-    }
+   
 }

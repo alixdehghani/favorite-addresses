@@ -1,0 +1,25 @@
+.container {
+    .header {
+        font-size: large;
+        font-weight: bold;
+    }
+    .content {
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0.5rem;
+            position: relative;
+        
+            mat-form-field {
+                display: block;
+                margin-top: 1rem;
+            }
+        }
+    }
+    .footer {
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}

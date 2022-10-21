@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AddressEditeFormComponent } from "../address-edite-form/address-edite-form.component";
 import { PublicFavoridAddressesComponent } from "./public-favorid-addresses.component";
 
 const routes: Routes = [
@@ -13,7 +14,9 @@ const routes: Routes = [
                 pathMatch: 'full'
             },
         ]
-    }
+    },
+    {path: 'edite/:id', loadChildren: () => import('../address-edite-form/address-edite-form.module').then(m => m.AddressEditeFormModule)},
+
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+<mat-card class="container">
+    <mat-card-header class="header">
+        Add new Address
+    </mat-card-header>
+    <mat-card-content class="content">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+            <mat-form-field appearance="fill">
+                <mat-label>Address Name</mat-label>
+                <input matInput type="text" formControlName="name">
+                <mat-icon matPrefix aria-hidden="false" aria-label="person">home</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Address Details</mat-label>
+                <input matInput type="email" formControlName="address">
+                <mat-icon matPrefix aria-hidden="false" aria-label="person">info</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>latitude</mat-label>
+                <input matInput type="text" formControlName="latitude">
+                <mat-icon matPrefix aria-hidden="false" aria-label="person">my_location</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>longitude</mat-label>
+                <input matInput type="text" formControlName="longitude">
+                <mat-icon matPrefix aria-hidden="false" aria-label="vpn_key">my_location</mat-icon>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-footer class="footer">
+        <button mat-raised-button color="primary" (click)="onSubmit()"
+            [disabled]="!formGroup.dirty || !formGroup.valid">Save</button>
+        <button mat-raised-button color="warn" (click)="onClose()">Cancel</button>
+
+    </mat-card-footer>
+</mat-card>
