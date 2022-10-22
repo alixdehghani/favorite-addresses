@@ -10,8 +10,6 @@ import { FormControl, FormGroup } from "@angular/forms";
 
 export class AddressEditeFormComponent {
     @Input() formGroup!: FormGroup;
-    @Output() onSubmitEmitter = new EventEmitter<void>();
-    @Output() onDeleteEmitter = new EventEmitter<void>();
     reverseResult = '';
 
     get addressControl(): FormControl {
@@ -32,13 +30,5 @@ export class AddressEditeFormComponent {
 
     get lonValue(): number {
         return +this.longsControl.value;
-    }
-    
-    onSubmit(): void {
-        this.onSubmitEmitter.emit();
-    }
-
-    onDelete(): void {
-        this.onDeleteEmitter.emit();
     }
 }

@@ -14,7 +14,7 @@ const routes: Routes = [
             },
         ]
     },
-    {path: 'edite/:id', loadChildren: () => import('../address-edite-form/address-edite-form.module').then(m => m.AddressEditeFormModule)},
+    {path: 'edite/:id', loadChildren: () => import('../favorite-addresses-edit-form-page/favorite-addresses-edit-form-page.module').then(m => m.PublicAddressesEditeFormPageModule)},
 
 ];
 

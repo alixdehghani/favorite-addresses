@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AddressEditeFormComponent } from "./address-edite-form.component";
+import { PublicAddressesEditeFormPageComponent } from "./public-addresses-edit-form-page.component";
 
 const routes: Routes = [
     {
         path: '',
-        component: AddressEditeFormComponent,
+        component: PublicAddressesEditeFormPageComponent,
     }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class AddressEditeFormRoutingModule { }
+export class PublicAddressesEditeFormPageRoutingModule { }

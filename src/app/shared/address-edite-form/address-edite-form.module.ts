@@ -22,6 +22,7 @@ import { AddressEditeFormComponent } from "./address-edite-form.component";
         ReactiveFormsModule,
         SearchGeocodingModule,
         ReverseGeocodingModule
-    ]
+    ],
+    exports: [AddressEditeFormComponent]
 })
 export class AddressEditeFormModule {}

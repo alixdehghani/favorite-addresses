@@ -4,21 +4,18 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ApiService } from "./api.service";
 
 @Component({
-    selector: 'app-address-edite-form',
-    templateUrl: 'address-edite-form.component.html',
-    styleUrls: ['address-edite-form.component.scss'],
+    selector: 'app-public-addresses-edit-form-page',
+    templateUrl: 'public-addresses-edit-form-page.component.html',
+    styleUrls: ['public-addresses-edit-form-page.component.scss'],
     providers: [ApiService]
 })
-
-export class AddressEditeFormComponent implements OnInit {
+export class PublicAddressesEditeFormPageComponent implements OnInit {
     loading = false;
     readonly formGroup: FormGroup;
-    formControl = new FormControl();
     reverseResult = ''
     constructor(route: ActivatedRoute, private _apiService: ApiService, private _router: Router) {
         const routeParams = route.snapshot.paramMap;
         const id = Number(routeParams.get('id'));
-
 
         this.formGroup = new FormGroup({
             name: new FormControl<string | null>(null),
@@ -62,7 +59,6 @@ export class AddressEditeFormComponent implements OnInit {
         this.loading = true;
         this._apiService.deletePublicAddress().subscribe({
             next: (value) => {
-                console.log(value);
                 this._router.navigate(['']);
                 this.loading = false;
             },
@@ -70,25 +66,5 @@ export class AddressEditeFormComponent implements OnInit {
                 this.loading = false;
             }
         });
-    }
-
-    get addressControl(): FormControl {
-        return this.formGroup.get('address') as FormControl;
-    }
-
-    get latControl(): FormControl {
-        return this.formGroup.get('latitude') as FormControl;
-    }
-
-    get longsControl(): FormControl {
-        return this.formGroup.get('longitude') as FormControl;
-    }
-
-    get latValue(): number {
-        return +this.latControl.value;
-    }
-
-    get lonValue(): number {
-        return +this.longsControl.value;
     }
 }

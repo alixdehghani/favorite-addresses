@@ -1,36 +1,17 @@
-.container {
-    width:  70%;
+.form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    .header {
-        font-size: large;
-        font-weight: bold;
+    justify-content: space-between;
+    padding: 0.5rem;
+    position: relative;
+
+    mat-form-field {
+        display: block;
+        margin-top: 1rem;
     }
-    .content {
-        .form {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 0.5rem;
-            position: relative;
-        
-            mat-form-field {
-                display: block;
-                margin-top: 1rem;
-            }
-            
-            .reverse-text {
-                padding: .5rem;
-                color: green;
-            }
-        }
-    }
-    .footer {
-        padding: 0.5rem;
-        display: flex;
-        justify-content: space-between;
+    
+    .reverse-text {
+        padding: .5rem;
+        color: green;
     }
 }

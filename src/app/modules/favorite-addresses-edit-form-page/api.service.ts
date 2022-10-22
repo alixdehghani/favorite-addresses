@@ -5,21 +5,21 @@ import { environment } from "src/environments/environment";
 
 @Injectable()
 export class ApiService {
-    private _editUrl!: string;
+    private _baseUrl!: string;
     constructor(private _httpClient: HttpClient) {}
     init(id: number) {
-        this._editUrl = `${environment.baseUrl}/public-addresses/${id}`;
+        this._baseUrl = `${environment.baseUrl}/favorite-addresses/${id}`;
     }
 
     getPublicAddressDetail(): Observable<any> {
-        return this._httpClient.get(this._editUrl);
+        return this._httpClient.get(this._baseUrl);
     }
 
     EditPublicAddress(data: any): Observable<any> {
-        return this._httpClient.put(this._editUrl, data);
+        return this._httpClient.put(this._baseUrl, data);
     }
 
     deletePublicAddress(): Observable<any> {
-        return this._httpClient.delete(this._editUrl);
+        return this._httpClient.delete(this._baseUrl);
     }
 }
