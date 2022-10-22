@@ -62,7 +62,7 @@ export class FavoriteAddressesEditeFormPageComponent implements OnInit {
         this.loading = true;
         this._apiService.deletePublicAddress().subscribe({
             next: (value) => {
-                this._router.navigate(['']);
+                this._router.navigate(['/private-favorid-addresses/']);
                 this.loading = false;
             },
             error: (err) => {

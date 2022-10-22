@@ -19,12 +19,4 @@ export class ApiService {
         return this._httpClient.post<readFavoriteAddressInterface>(this._favorteAddressesUrl, addr);
     }
 
-    updateFavorteAddress(id: number, addr: updateFavoriteAddressInterface): Observable<readFavoriteAddressInterface> {
-        return this._httpClient.put<readFavoriteAddressInterface>(`${this._favorteAddressesUrl}/${id}`, addr);
-    }
-
-    deleteFavorteAddress(id: number): Observable<void> {
-        return this._httpClient.delete<void>(`${this._favorteAddressesUrl}/${id}`);
-    }
-
 }
