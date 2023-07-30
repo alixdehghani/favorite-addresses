@@ -5,8 +5,8 @@ import { Injectable } from "@angular/core";
 })
 export class UserService {
 
-    setUserInfo(email: string, id: string): void {
-        localStorage.setItem('email', email);
+    setUserInfo(email: string | null, id: string): void {
+        localStorage.setItem('email', email || '');
         localStorage.setItem('id', id);
     }
 

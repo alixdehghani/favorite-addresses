@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-sing-up-85a5f"
+  },
+  "targets": {
+    "angular-sing-up-85a5f": {
+      "hosting": {
+        "favorite-addresses": [
+          "angular-sing-up-85a5f"
+        ]
+      }
+    }
+  }
+}

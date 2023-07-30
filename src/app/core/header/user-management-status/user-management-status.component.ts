@@ -40,7 +40,7 @@ export class UserManagementStatusComponent implements AfterViewInit, OnDestroy {
     }
 
     onLogout(): void {
-        this._authService.logout();
+        this._authService.logoutFb().subscribe();
         this._router.navigate(['']);
     }
 

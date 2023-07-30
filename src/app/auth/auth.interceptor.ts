@@ -21,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (token != null) {
       if (this._authService.isTokenExpired()) {
         this._snackBar.open('Session expired, please login again',  'Close', { panelClass: 'error-snackbar', duration: 4000 });
-        this._authService.logout();
+        this._authService.logoutFb().subscribe();
         this._route.navigate(['/signin/login']);
         return throwError(() => ({error: 'TOken is Expire!'}))
       } else {
@@ -32,7 +32,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError(error => {
         if (error instanceof HttpErrorResponse && error.status === 401) {
           this._snackBar.open('Session expired, please login again',  'Close', { panelClass: 'error-snackbar', duration: 4000 });
-          this._authService.logout();
+          this._authService.logoutFb().subscribe();
           this._route.navigate(['/signin/login']);
         }
         if (error instanceof HttpErrorResponse && error.status === 403) {

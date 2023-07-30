@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { AuthService } from "src/app/auth/auth.service";
 import { ApiService } from "./api-service";
 import { LoginInterface } from "./login.interface";
+import { finalize } from "rxjs";
 
 @Component({
     selector: 'app-sigin-login',
@@ -30,16 +31,26 @@ export class LoginComponent {
     onSubmit() {
         this.loading = true;
         this.error = '';
-        this._apiService.login(this.formGroup.value).subscribe({
-            next: (data) => {
-                this._auth.login(data.accessToken);
-                this._router.navigateByUrl('/');
-                this.loading = false;
-            },
-            error: (err) => {
-                this.error = err?.error;
-                this.loading = false;
-            }
-        });
+        this._auth.loginWithfb(this.formGroup.get('email')?.value, this.formGroup.get('password')?.value)
+            .pipe(finalize(() => this.loading = false))
+            .subscribe({
+                next: res => {
+                    this._router.navigateByUrl('/');
+                },
+                error: (err) => {
+                    this.error = err?.message;
+                }
+            });
+        // this._apiService.login(this.formGroup.value).subscribe({
+        //     next: (data) => {
+        //         this._auth.login(data.accessToken);
+        //         this._router.navigateByUrl('/');
+        //         this.loading = false;
+        //     },
+        //     error: (err) => {
+        //         this.error = err?.error;
+        //         this.loading = false;
+        //     }
+        // });
     }
 }
