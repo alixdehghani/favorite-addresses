@@ -10,7 +10,7 @@
     "singleProjectMode": true
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/favorite-addresses",
     "ignore": [
       "firebase.json",
       "**/.*",
