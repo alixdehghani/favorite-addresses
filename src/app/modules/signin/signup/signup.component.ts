@@ -41,7 +41,7 @@ export class SignupComponent {
         }).subscribe({
             next: (data) => {
                 this.loading = false;
-                this._auth.login(data.accessToken);
+                //this._auth.login(data.accessToken);
                 this._router.navigateByUrl("/");
             },
             error: (err) => {

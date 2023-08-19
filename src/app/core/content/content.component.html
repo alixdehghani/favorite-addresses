@@ -3,7 +3,7 @@
         <nav mat-tab-nav-bar [tabPanel]="tabPanel" class="tab-nav-bar">
             <a mat-tab-link (click)="activeLink = 'public-favorid-addresses'" [active]="activeLink === 'public-favorid-addresses'"
                 [routerLink]="'/public-favorid-addresses'">Public Addresses</a>
-            <a *ngIf="authService.isAuthenticated" mat-tab-link (click)="activeLink = 'private-favorid-addresses'" [active]="activeLink === 'private-favorid-addresses'"
+            <a *ngIf="(authService.loggedIn$ | async)" mat-tab-link (click)="activeLink = 'private-favorid-addresses'" [active]="activeLink === 'private-favorid-addresses'"
                 [routerLink]="'/private-favorid-addresses'">Favorite Addresses</a>
         </nav>    
     </mat-card-content>

@@ -31,7 +31,7 @@ export class LoginComponent {
     onSubmit() {
         this.loading = true;
         this.error = '';
-        this._auth.loginWithfb(this.formGroup.get('email')?.value, this.formGroup.get('password')?.value)
+        this._auth.loginWithFirebase(this.formGroup.get('email')?.value, this.formGroup.get('password')?.value)
             .pipe(finalize(() => this.loading = false))
             .subscribe({
                 next: res => {

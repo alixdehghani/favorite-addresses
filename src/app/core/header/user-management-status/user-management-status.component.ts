@@ -20,27 +20,20 @@ export class UserManagementStatusComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         setTimeout(() => {
-            if (this._authService.isAuthenticated) {
-                this.username = this._userService.email;
-                this.footerTemplate = this._authenticatedUserTemplate;
-            } else {
-                this.username = 'Guest';
+            this._subscription1 = this._authService.loggedIn$.subscribe(res => {
+                if (res) {
+                    this.username = this._userService.email;
+                    this.footerTemplate = this._authenticatedUserTemplate;
+                } else {
+                    this.username = 'Guest';
                 this.footerTemplate = this._guestTemplate;
-            }
-            this._subscription1 = this._authService.onAuthenticated.subscribe(() => {
-                this.username = this._userService.email;
-                this.footerTemplate = this._authenticatedUserTemplate;
-            });
-
-            this._subscription2 = this._authService.onLogout.subscribe(() => {
-                this.username = 'Guest';
-                this.footerTemplate = this._guestTemplate;
+                }
             });
         });
     }
 
     onLogout(): void {
-        this._authService.logoutFb().subscribe();
+        this._authService.logoutFirebase().subscribe();
         this._router.navigate(['']);
     }
 
