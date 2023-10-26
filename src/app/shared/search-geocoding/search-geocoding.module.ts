@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { SearchGeocodingComponent } from "./search-geocoding.component";
-import { MatAutocompleteModule } from "@angular/material/autocomplete"
-import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatLegacyAutocompleteModule as MatAutocompleteModule } from "@angular/material/legacy-autocomplete"
+import { MatLegacyFormFieldModule as MatFormFieldModule } from "@angular/material/legacy-form-field";
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatInputModule } from "@angular/material/input";
+import { MatLegacyInputModule as MatInputModule } from "@angular/material/legacy-input";
 import { HttpClientModule } from "@angular/common/http";
 import { ApiService } from "./api.service";
 import { MatIconModule } from "@angular/material/icon";

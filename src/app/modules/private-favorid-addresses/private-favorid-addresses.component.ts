@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
+import { MatLegacyDialog as MatDialog } from "@angular/material/legacy-dialog";
 import { Router } from "@angular/router";
 import { take } from "rxjs";
 import { UserService } from "src/app/core/user.service";

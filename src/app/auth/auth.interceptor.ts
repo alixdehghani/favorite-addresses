@@ -9,7 +9,7 @@ import {
 import { AuthService } from './auth.service';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 const TOKEN_HEADER_KEY = 'Authorization';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

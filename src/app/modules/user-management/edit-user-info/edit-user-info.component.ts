@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material/snack-bar";
+import { MatLegacySnackBar as MatSnackBar } from "@angular/material/legacy-snack-bar";
 import { UserService } from "src/app/core/user.service";
 import { ApiService } from "./api.service";
 

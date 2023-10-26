@@ -1,8 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { MatButtonModule } from "@angular/material/button";
-import { MatDialogModule } from "@angular/material/dialog";
+import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/legacy-button";
+import { MatLegacyDialogModule as MatDialogModule } from "@angular/material/legacy-dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { AuthInterceptor } from "src/app/auth/auth.interceptor";
 import { AddressAddFormModule } from "src/app/shared/address-add-form/address-add-form.module";
