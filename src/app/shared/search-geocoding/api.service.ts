@@ -12,6 +12,9 @@ export class ApiService {
     }
 
     search(value: string): Observable<SearchGeocodingInterface[]> {
-        return this._httpClient.get<SearchGeocodingInterface[]>(`${this._searchUrl}/${value}`, {params: {format: 'json'}});
+        return this._httpClient.get<SearchGeocodingInterface[]>(`${this._searchUrl}`, {params: {
+            q: value.split(' ').join(', '),
+            format: 'json'
+        }});
     }
 }

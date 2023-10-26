@@ -20,9 +20,9 @@ export class SearchGeocodingComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this._subscription = this.addressControl.valueChanges
-            .pipe(
-                debounceTime(500),
-                switchMap(value => {
+        .pipe(
+            debounceTime(500),
+            switchMap(value => {
                     return this._apiService.search(value);
                 })
             ).subscribe({
