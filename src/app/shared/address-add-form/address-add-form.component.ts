@@ -1,12 +1,35 @@
 import { Component, Inject } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import { CommonModule } from "@angular/common";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatLegacyCardModule as MatCardModule } from "@angular/material/legacy-card";
+import { SearchGeocodingComponent } from "../search-geocoding/search-geocoding.component";
+import { ReverseGeocodingComponent } from "../reverse-geocoding/reverse-geocoding.component";
+
 
 
 @Component({
+    standalone: true,
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        SearchGeocodingComponent,
+        ReverseGeocodingComponent
+    ],
     selector: 'app-address-add-form',
     templateUrl: 'address-add-form.component.html',
-    styleUrls: ['address-add-form.component.scss']
+    styleUrls: ['address-add-form.component.scss'],
 })
 export class AddressAddFormComponent {
     readonly formGroup: FormGroup;

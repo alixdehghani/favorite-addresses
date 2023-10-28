@@ -1,11 +1,23 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from "@angular/core";
 import { Subject, takeUntil } from "rxjs";
 import { ApiService } from "./api.service";
+import { MatIconModule } from "@angular/material/icon";
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
+    standalone: true,
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatIconModule
+    ],
     selector: 'app-reverse-geocoding',
     templateUrl: 'reverse-geocoding.component.html',
-    styleUrls: ['reverse-geocoding.component.scss']
+    styleUrls: ['reverse-geocoding.component.scss'],
+    providers: [ApiService]
 })
 export class ReverseGeocodingComponent implements OnDestroy {
     @Input() lat!: number;

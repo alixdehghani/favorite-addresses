@@ -5,10 +5,10 @@ import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/lega
 import { MatLegacyDialogModule as MatDialogModule } from "@angular/material/legacy-dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { AuthInterceptor } from "src/app/auth/auth.interceptor";
-import { AddressAddFormModule } from "src/app/shared/address-add-form/address-add-form.module";
 import { FavoridAddressCardModule } from "../favorid-address-card/favorid-address-card.module";
 import { PrivateFavoridAddressesRoutingModule } from "./private-favorid-addresses-routing.module";
 import { PrivateFavoridAddressesComponent } from "./private-favorid-addresses.component";
+import { AddressAddFormComponent } from "src/app/shared/address-add-form/address-add-form.component";
 
 @NgModule({
     declarations: [PrivateFavoridAddressesComponent],
@@ -20,7 +20,7 @@ import { PrivateFavoridAddressesComponent } from "./private-favorid-addresses.co
         MatButtonModule,
         MatIconModule,
         MatDialogModule,
-        AddressAddFormModule,
+        AddressAddFormComponent,
     ],
     exports: [],
     providers: [
